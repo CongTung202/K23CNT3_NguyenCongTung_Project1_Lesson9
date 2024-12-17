@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
         // ]);
         $this->call([
 
-               ctnhaccseeder::class
+               ctnhaccseeder::class,ctvattuseeder::class
         ]);
     }
 }

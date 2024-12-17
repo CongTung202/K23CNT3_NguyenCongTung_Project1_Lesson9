@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\ctNhacCCcontroller;
 use App\Http\Controllers\ctSinhVien;
+use App\Http\Controllers\ctVatTuController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +18,13 @@ use Illuminate\Support\Facades\Route;
 
 
 
-route::get('/',[ctSinhVien::class,'ctList'])->name('congtung.home'    );
+route::get('/',function(){
+    return view('welcome');
+})->name('congtung.home'    );
 route::get('/ct/them',[ctSinhVien::class,'ctCreate']);
 route::post('/ct/them',[ctSinhVien::class,'ctCreateSubmit'])->name('create.sinhvien');
+route::get('/NhaCC',[ctNhacCCcontroller::class,'list'])->name('congtung.list');
+route::get('ViewNhaCC',function(){
+    return view('ctNhaCC.View');
+});
+route::get('/ViewVatTu',[ctVatTuController::class,'list']);

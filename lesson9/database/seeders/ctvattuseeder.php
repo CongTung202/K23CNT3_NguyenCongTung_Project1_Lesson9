@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-
+use Faker\Factory as Faker;
 class ctvattuseeder extends Seeder
 {
     /**
@@ -12,11 +12,15 @@ class ctvattuseeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('ctvattu')->insert([
-            'mavattu' => 'DD01',
-            'tenvattu' => 'Đầu DVD Hitachi 1 cửa',
-            'donvitinh' => 'Bộ',
-            'phantram' => 40,
-        ]);
+        $faker= Faker::create();
+        foreach(range(1,18)as $index){
+            DB::table('ctvattu')->insert([
+                'mavattu'=>$faker->word(),
+                // 'MaNCC'=>$faker->word(15),
+                'tenvattu'=>$faker->sentence(5),
+                'donvitinh'=>$faker->word(3),
+                'phantram'=>$faker->randomFloat('2',1,100)]);
+                
+        }
     }
 }
