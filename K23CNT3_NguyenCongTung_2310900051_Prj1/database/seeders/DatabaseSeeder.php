@@ -13,8 +13,8 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
-          //ctQUANTRITABLEseeder::class,
-         // ctLOAISANPHAMseeder::class,
+          ctQUANTRITABLEseeder::class,
+         ctLOAISANPHAMseeder::class,
           ctSANPHAM::class,
         ]);
         // \App\Models\User::factory(10)->create();

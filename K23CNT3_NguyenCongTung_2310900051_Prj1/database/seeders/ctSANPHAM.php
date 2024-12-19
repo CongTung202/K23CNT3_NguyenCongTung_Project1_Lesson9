@@ -43,7 +43,7 @@ class ctSANPHAM extends Seeder
             'ctTrangThai'=>1,
         ]);
         DB::table('CT_SAN_PHAM')->insert([
-            'ctMaSanPham'=>'SP004',
+            'ctMaSanPham'=>'SP003',
             'ctTenSanPham'=>'VIVO N5',
             'ctHinhAnh'=>'images/sanpham/VIVON5',
             'ctSoLuong'=>1,

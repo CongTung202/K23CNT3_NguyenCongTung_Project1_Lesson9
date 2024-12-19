@@ -8,5 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class ctQuanTriModels extends Model
 {
     use HasFactory;
-    protected $table = 'CT_QUAN_TRI';
+    protected $table = "ct_quan_tri"; 
 }
+

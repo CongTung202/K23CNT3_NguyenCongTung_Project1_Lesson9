@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('ctHinhAnh');
             $table->integer('ctSoLuong');
             $table->float('ctDonGia');
-            $table->string('ctMaLoai')->references('ctMaLoai')->on('CT_LOAI_SAN_PHAM');
+            $table->string('ctMaLoai')->references('id')->on('CT_LOAI_SAN_PHAM');
             $table->tinyInteger('ctTrangThai');
             $table->timestamps();
         });

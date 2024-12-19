@@ -14,16 +14,16 @@ class ctQUANTRITABLEseeder extends Seeder
     public function run(): void
     {
         //
-        $matkhau=md5("20022005");
+        
         DB::table('CT_QUAN_TRI')->insert([
             'ctTaiKhoan'=>'CongTungBTR',
-            'ctMatKhau'=>$matkhau,
+            'ctMatKhau'=>'Tung1234@',
             'ctTrangThai'=>0,
         ]);
         
         db::table('CT_QUAN_TRI')->insert([
             'ctTaiKhoan'=>'0334402527',
-            'ctMatKhau'=>$matkhau,
+            'ctMatKhau'=>'Tung123@',
             'ctTrangThai'=>0,
         ]);
     }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ctLoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,8 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome')->name('home');
 });
-route::get('/login',function(){
-    return view('ctLogIn.Login');
-});
+route::get('/login',[ctLoginController::class,'ctIndex']);
+route::post('/login',[ctLoginController::class,'ctLoginSubmit'])->name('CongTung.Login');
+route::get('/home',function(){
+    return view('ctList.Home');
+})->name('CongTung.Home');
