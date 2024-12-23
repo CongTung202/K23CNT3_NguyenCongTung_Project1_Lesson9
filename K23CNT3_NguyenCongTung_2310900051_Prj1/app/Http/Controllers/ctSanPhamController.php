@@ -19,22 +19,30 @@ class ctSanPhamController extends Controller
         $request->validate([
             'ctMaSanPham' => 'required|string|unique:CT_SAN_PHAM',
             'ctTenSanPham' => 'required|string',
-            'ctHinhAnh'=>'',
-            'ctSoLuong'=>'required|numeric',
-            'ctDonGia'=>'required|numeric',
-            'ctMaLoai'=>'required',
-            'ctTrangThai'=>'required|boolean'
+            'ctHinhAnh' => 'nullable|image|mimes:jpeg,png,jpg,gif',
+            'ctSoLuong' => 'required|numeric',
+            'ctDonGia' => 'required|numeric',
+            'ctMaLoai' => 'required',
+            'ctTrangThai' => 'required|boolean'
         ]);
-
+    
         $ctSanPham = new ctSanPhamModel();
         $ctSanPham->ctMaSanPham = $request->ctMaSanPham;
         $ctSanPham->ctTenSanPham = $request->ctTenSanPham;
-        $ctSanPham->ctHinhAnh = $request->ctHinhAnh;
+        // Xử lý hình ảnh
+        if ($request->hasFile('ctHinhAnh')) {
+            $ctGetAnh = $request->file('ctHinhAnh');
+            $SaveAs = time() . '.' . $ctGetAnh->getClientOriginalExtension(); // Tạo tên file duy nhất
+            $ctGetAnh->move(public_path('images'), $SaveAs); // Lưu hình ảnh vào thư mục public/images
+            $ctSanPham->ctHinhAnh = $SaveAs; // Lưu tên file vào cơ sở dữ liệu
+        }
+    
         $ctSanPham->ctSoLuong = $request->ctSoLuong;
         $ctSanPham->ctDonGia = $request->ctDonGia;
         $ctSanPham->ctMaLoai = $request->ctMaLoai;
         $ctSanPham->ctTrangThai = $request->ctTrangThai;
         $ctSanPham->save();
+    
         return redirect('/ctAdmin/SanPham/ct-list');
     }
 

@@ -32,3 +32,4 @@ route::get('ctAdmin/ct-view/{id}',[ctLoaiSanPhamController::class,'ctView'])->na
 route::get('/ctAdmin/SanPham/ct-list',[ctSanPhamController::class,'ctList'])->name('CongTung.SanPham.List');
 route::get('ctAdmin/SanPham/ct-create',[ctSanPhamController::class,'ctCreate'])->name('CongTung.SanPham.Create');
 route::post('ctAdmin/SanPham/ct-create',[ctSanPhamController::class,'ctCreateSubmit'])->name('CongTung.SanPham.Create');
+route::get('ctAdmin/SanPham/ct-create',[ctLoaiSanPhamController::class,'ctPutToList']);
