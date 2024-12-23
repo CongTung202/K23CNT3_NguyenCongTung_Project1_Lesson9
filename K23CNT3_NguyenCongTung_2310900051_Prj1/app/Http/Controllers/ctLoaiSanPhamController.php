@@ -9,6 +9,9 @@ class ctLoaiSanPhamController extends Controller
 {
     // crud
     //list
+    public function ctHome(){
+        return view('ctAdmin.index');
+    }
     public function ctList(){
         $ctLoaiSanPham=CT_LOAI_SAN_PHAM::paginate(5);
         return view('ctAdmin.ctLoaiSanPham.ct-list',['ctLoaiSanPham'=>$ctLoaiSanPham]);
@@ -17,6 +20,12 @@ class ctLoaiSanPhamController extends Controller
         return view('ctAdmin.ctLoaiSanPham.ct-create');
     }
     public function ctCreateSubmit(Request $request) {
+        $request->validate([
+            'ctMaLoai' => 'required|string|max:255|unique:CT_LOAI_SAN_PHAM',
+            'ctTenLoai' => 'required|string|max:255',
+            'ctTrangThai'=>'required|boolean'
+        ]);
+
         $ctLoaiSanPham = new CT_LOAI_SAN_PHAM;
         $ctLoaiSanPham->ctMaLoai = $request->ctMaLoai;
         $ctLoaiSanPham->ctTenLoai = $request->ctTenLoai;

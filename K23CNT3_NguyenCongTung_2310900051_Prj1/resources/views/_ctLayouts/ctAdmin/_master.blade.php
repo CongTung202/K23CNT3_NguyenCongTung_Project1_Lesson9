@@ -6,13 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <title>@yield('title')</title>
+    <link rel="icon" href=
+"https://s3.zerochan.net/240/27/20/4368527.avif"
+        type="image/x-icon" />
     <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
         .sideBar {
             width: 250px;
             background: gray;
         }
         .wrapper {
-            width: calc(90% - 250px); 
+            width: calc(100% - 250px); 
             background: #fff;
         }
     </style>

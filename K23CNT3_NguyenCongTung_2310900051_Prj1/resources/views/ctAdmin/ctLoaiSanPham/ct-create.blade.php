@@ -7,13 +7,16 @@
     @csrf 
     <div class="card">
         <div class="card-header">
-            <h2>Thêm mới loại sản phẩm</h2>
+            <h2>Thêm mới sản phẩm</h2>
         </div>
         <div class="card-body container-fluid">
             <div class="mb-3 row">
                 <label for="ctMaLoai" class="col-sm-2 col-form-label">Mã loại</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="ctMaLoai" name="ctMaLoai" required />
+                    @error('ctMaLoai')
+                        <div class="text-danger">{{ 'Mã Loại Đã Tồn Tại' }}</div>
+                    @enderror
                 </div>
             </div>
             <div class="mb-3 row">
@@ -21,6 +24,9 @@
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="ctTenLoai" name="ctTenLoai" required />
                 </div>
+                @error('ctTenLoai')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-3 row">
                 <label class="col-sm-2 col-form-label">Trạng thái</label>
@@ -35,7 +41,7 @@
         </div>
         <div class="card-footer">
             <button type="submit" class="btn btn-success">Ghi lại</button>
-            <a href="{{ route('CongTung.List') }}" class="btn btn-secondary">Quay lại</a>
+            <a href="{{ route('CongTung.SanPham.List') }}" class="btn btn-secondary">Quay lại</a>
         </div>
     </div>
 </form>
