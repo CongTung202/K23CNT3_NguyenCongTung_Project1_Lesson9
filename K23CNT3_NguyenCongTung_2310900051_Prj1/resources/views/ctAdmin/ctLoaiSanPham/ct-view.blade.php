@@ -7,29 +7,31 @@
     @csrf 
     <div class="card">
         <div class="card-header">
-            <h2>Chỉnh sửa loại sản phẩm</h2>
+            <h2>Xem loại sản phẩm</h2>
         </div>
         <div class="card-body container-fluid">
             <div class="mb-3 row">
-                <label for="ctMaLoai" class="col-sm-2 col-form-label">Mã loại</label>
+                <label for="ctMaLoai" class="col-sm-2 col-form-label">Mã loại:</label>
                 <div class="col-sm-10">
-                    <p type="text" class="form-control" id="ctMaLoai" readonly value="" name="ctMaLoai" >{{ $ctLoaiSanPham->ctMaLoai }}</p>
+                    <p  id="ctMaLoai" readonly value="" name="ctMaLoai" >{{ $ctLoaiSanPham->ctMaLoai }}</p>
                 </div>
             </div>
             <div class="mb-3 row">
-                <label for="ctTenLoai" class="col-sm-2 col-form-label">Tên loại</label>
+                <label for="ctTenLoai" class="col-sm-2 col-form-label">Tên loại:</label>
                 <div class="col-sm-10">
-                    <p type="text" class="form-control" id="ctTenLoai" readonly value="" name="ctTenLoai" >{{ $ctLoaiSanPham->ctTenLoai }} </p>
+                    <p  id="ctTenLoai" readonly value="" name="ctTenLoai" >{{ $ctLoaiSanPham->ctTenLoai }} </p>
                 </div>
             </div>
             <div class="mb-3 row">
-                <label class="col-sm-2 col-form-label">Trạng thái</label>
+                <label class="col-sm-2 col-form-label">Trạng thái:</label>
                 <div class="col-sm-10">
-                    <input type="radio" id="ctTrangThai1" name="ctTrangThai" readonly value="1" {{ $ctLoaiSanPham->ctTrangThai == 1 ? 'checked' : '' }} />
-                    <label for="ctTrangThai1">Hiển thị</label>
-                    &nbsp;
-                    <input type="radio" id="ctTrangThai0" name="ctTrangThai" readonly value="0" {{ $ctLoaiSanPham->ctTrangThai == 0 ? 'checked' : '' }} />
-                    <label for="ctTrangThai0">Khóa</label>
+
+                    @if($ctLoaiSanPham->ctTrangThai==1)
+                        <p>Hiển Thị</p>
+                    @else
+                        <p>Khóa</p>
+                    
+                    @endif
                 </div>
             </div>
         </div>

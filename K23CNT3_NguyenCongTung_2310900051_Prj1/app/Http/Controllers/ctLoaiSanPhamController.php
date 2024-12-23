@@ -10,7 +10,7 @@ class ctLoaiSanPhamController extends Controller
     // crud
     //list
     public function ctList(){
-        $ctLoaiSanPham=CT_LOAI_SAN_PHAM::all();
+        $ctLoaiSanPham=CT_LOAI_SAN_PHAM::paginate(5);
         return view('ctAdmin.ctLoaiSanPham.ct-list',['ctLoaiSanPham'=>$ctLoaiSanPham]);
     }
     public function ctCreate(){

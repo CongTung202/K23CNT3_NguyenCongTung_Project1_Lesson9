@@ -23,7 +23,7 @@
                 <tbody>
                     @forelse ($ctLoaiSanPham as  $item)
                     <tr>
-                        <td>{{  1 }}</td>
+                        <td>{{$loop->iteration+($ctLoaiSanPham->currentPage()-1)*$ctLoaiSanPham->perPage()}}</td>
                         <td>{{ $item->ctMaLoai }}</td>
                         <td>{{ $item->ctTenLoai }}</td>
                         <td>{{ $item->ctTrangThai }}</td>
@@ -32,8 +32,14 @@
                                 Xem</a>
                             <a href="/ctAdmin/ct-edit/{{$item->id}}" class="btn btn-primary">
                                 Sửa</a>
-                            <a href="/ctAdmin/ct-delete/{{$item->id}}" class="btn btn-danger">
-                                Xóa</a>
+                                <a href="/ctAdmin/ct-delete/{{$item->id}}" class="btn btn-danger" onclick="return ctNoitice();">
+                                    Xóa
+                                </a>   
+                                <script>
+                                    function ctNoitice() {
+                                        return confirm("Bạn có chắc chắn muốn xóa mục này?"); 
+                                    }
+                                </script>
                         </td>    
                     </tr>    
                     @empty
@@ -43,7 +49,10 @@
                     @endforelse
                 </tbody>
             </table>
+            <tr>{{$ctLoaiSanPham->links('pagination::bootstrap-5')}}</tr>
         </div>
+        
     </div>
+    
 </div>
 @endsection
