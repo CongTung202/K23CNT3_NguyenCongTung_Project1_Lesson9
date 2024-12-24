@@ -5,12 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <title>Header</title>
-    <link rel="icon" href=
-"https://i.pinimg.com/736x/43/61/09/4361091dd491bacbbcdbaa0be7a2d2be.jpg"
-        type="image/x-icon" />
+    <link rel="icon" href="https://i.pinimg.com/736x/43/61/09/4361091dd491bacbbcdbaa0be7a2d2be.jpg" type="image/x-icon" />
     <style>
         .custom-header {
-            background-color: rgb(34, 155, 185);
+            background-color: rgb(120, 222, 248);
         }
         .custom-header .navbar-brand,
         .custom-header .nav-link {
@@ -19,7 +17,7 @@
         .custom-header .nav-link:hover {
             color: #004d00; 
         }
-        .navbar-collapse{
+        .navbar-collapse {
             font-size: 20px;
         }
     </style>
@@ -28,21 +26,27 @@
     <header class="custom-header">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light custom-header">
-                <a class="navbar-brand" href="#">Trang Chủ</a>
+                <a class="navbar-brand" href="{{ route('CongTung.Home') }}">Trang Chủ</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Trang Chủ</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">Thông Tin</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/ctAdmin/ct-Login">Đăng Nhập</a>
-                        </li>
+                        @if (Cookie::has('ctTaiKhoan'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Chào, {{ Cookie::get('ctTaiKhoan') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <form action="{{ route('CongTung.Logout') }}" method="POST" style="display: inline;">
+                                    @csrf
+                                    <button type="submit" class="nav-link btn btn-link" style="color: black;">Đăng Xuất</button>
+                                </form>
+                            </li>
+                        @else
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('CongTung.Login') }}">Đăng Nhập</a>
+                            </li>
+                        @endif
                     </ul>
                 </div>
             </nav>

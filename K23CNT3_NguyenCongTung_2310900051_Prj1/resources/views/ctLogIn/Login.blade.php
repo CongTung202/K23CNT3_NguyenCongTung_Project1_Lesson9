@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,20 +32,19 @@
                 </ul>
             </div>
         @endif
-
         <form action="{{ route('CongTung.Login') }}" method="POST">
             @csrf
             <div class="mb-3">
-                <label for="TaiKhoan" class="form-label">Tài Khoản</label>
-                <input type="text" name="ctTaiKhoan" id="TaiKhoan" class="form-control" required>
+                <label for="ctTaiKhoan" class="form-label">Tài Khoản</label>
+                <input type="text" name="ctTaiKhoan" id="ctTaiKhoan" class="form-control" required>
             </div>
             <div class="mb-3">
-                <label for="MatKhau" class="form-label">Mật Khẩu</label>
-                <input type="password" name="ctMatKhau" id="MatKhau" class="form-control" required>
+                <label for="ctMatKhau" class="form-label">Mật Khẩu</label>
+                <input type="password" name="ctMatKhau" id="ctMatKhau" class="form-control" required>
             </div>
             <div class="mb-3 form-check">
-                <input type="checkbox" name="ctRemember" id="ctRemember" class="form-check-input">
-                <label for="ctRemember" class="form-check-label">Ghi nhớ tôi</label>
+                Bạn Chưa Có Tài Khoản?
+                <a href="/ctAdmin/ct-register">Đăng Ký</a>
             </div>
             <button type="submit" class="btn btn-primary w-100">Đăng Nhập</button>
         </form>
@@ -53,4 +52,4 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-</html>
+</html> 
