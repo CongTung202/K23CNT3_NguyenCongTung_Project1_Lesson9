@@ -3,13 +3,23 @@
 @section('title', 'Chỉnh Sửa Sản Phẩm')    
 
 @section('content-body')
-<form action="{{ route('CongTung.SanPham.EditSubmit', $ctSanPham->id) }}" method="post" enctype="multipart/form-data">
+<form action="{{ route('CongTung.SanPham.EditSubmit',$ctSanPham->id) }}" method="post" enctype="multipart/form-data">
     @csrf 
     <div class="card">
         <div class="card-header">
             <h2>Chỉnh sửa sản phẩm</h2>
         </div>
         <div class="card-body container-fluid">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
             <div class="mb-3 row">
                 <label for="ctMaSanPham" class="col-sm-2 col-form-label">Mã Sản Phẩm</label>
                 <div class="col-sm-10">
@@ -18,7 +28,6 @@
                         <div class="text-danger">{{ 'Mã Sản Phẩm Đã Tồn Tại' }}</div>
                     @enderror
                 </div>
-            </ ```blade
             </div>
             <div class="mb-3 row">
                 <label for="ctTenSanPham" class="col-sm-2 col-form-label">Tên Sản Phẩm</label>
