@@ -10,5 +10,4 @@
         <a href="/ctAdmin/SanPham/ct-list">Danh Sách Sản Phẩm</a>
     </li>
     <li class="list-group-item"><a href="/ctAdmin/Khach/ct-list">Danh Sách Khách Hàng</a></li>
-    <li class="list-group-item"><a href="/ctAdmin/Admin/ct-list">Danh Sách Admin</a></li>
 </ul>

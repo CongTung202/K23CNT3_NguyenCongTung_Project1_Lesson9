@@ -10,7 +10,7 @@ class ctSanPhamController extends Controller
 {
     //
     public function ctList(){
-        $ctSanPham=ctSanPhamModel::where('ctTrangThai',1)->paginate(3);
+        $ctSanPham=ctSanPhamModel::paginate(5);
         return view('ctAdmin.ctSanPham.ct-list',['ctSanPham'=>$ctSanPham]);
     }
     public function ctCreate(){
@@ -101,6 +101,12 @@ class ctSanPhamController extends Controller
             $ctGetAnh->move(public_path('images'), $SaveAs);
             $ctSanPham->ctHinhAnh = $SaveAs;
         }
+    }
+    public function ctDelete($id)
+    {
+        $ctSanPham = ctSanPhamModel::find($id);
+        $ctSanPham->delete();
+        return redirect()->route('CongTung.SanPham.List');
     }
 
 }

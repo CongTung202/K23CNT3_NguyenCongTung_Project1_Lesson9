@@ -13,9 +13,10 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
-          ctQUANTRITABLEseeder::class,
-         ctLOAISANPHAMseeder::class,
-          ctSANPHAM::class,
+        //  ctQUANTRITABLEseeder::class,
+       //  ctLOAISANPHAMseeder::class,
+       //   ctSANPHAM::class,
+          ctKhachHangseeder::class,
         ]);
         // \App\Models\User::factory(10)->create();
             
