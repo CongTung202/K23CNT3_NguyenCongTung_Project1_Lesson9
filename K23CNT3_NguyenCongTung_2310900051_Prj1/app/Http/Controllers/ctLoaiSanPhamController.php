@@ -9,9 +9,12 @@ class ctLoaiSanPhamController extends Controller
 {
     // crud
     //list
+
+
     public function ctHome(){
         return view('ctAdmin.index');
     }
+    
     public function ctPutToList(){
         $ctLoaiSanPham=CT_LOAI_SAN_PHAM::all();
         return view('ctAdmin.ctSanPham.ct-create',compact('ctLoaiSanPham'));

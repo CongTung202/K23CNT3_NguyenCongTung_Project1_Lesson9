@@ -72,8 +72,8 @@
                     <ul>
                         <li><a href="/ctGuest/Home">TRANG CHỦ</a></li>
                         <li><a href="/ctGuest/Introduction">GIỚI THIỆU</a></li>
-                        <li><a href="#">SẢN PHẨM</a></li>
-                        <li><a href="#">ĐĂNG NHẬP/ĐĂNG KÝ</a></li>
+                        <li><a href="/ctGuest/SanPham">SẢN PHẨM</a></li>
+                        <li><a href="/ctGuest/ct-create">ĐĂNG NHẬP/ĐĂNG KÝ</a></li>
                     </ul>
                 </div>
             </nav>

@@ -14,6 +14,9 @@
             padding: 0;
             margin: 0;
         }
+        .list-group{
+            height: 100%;
+        }
         .sideBar {
             width: 250px;
             background: gray;
@@ -40,5 +43,6 @@
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    </script>
 </body>
 </html>

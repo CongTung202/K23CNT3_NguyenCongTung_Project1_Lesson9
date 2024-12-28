@@ -47,5 +47,5 @@
             <p>Không có sản phẩm nào.</p>
         @endforelse
     </div>
-    
+</div>  
 @endsection

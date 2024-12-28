@@ -12,7 +12,7 @@
     @endif
     <div class="card">
         <div class="card-header">
-            <h2>Thêm mới khách hàng</h2>
+            <h2>Đăng Ký khách hàng</h2>
         </div>
         <div class="card-body container-fluid">
             <div class="mb-3 row">

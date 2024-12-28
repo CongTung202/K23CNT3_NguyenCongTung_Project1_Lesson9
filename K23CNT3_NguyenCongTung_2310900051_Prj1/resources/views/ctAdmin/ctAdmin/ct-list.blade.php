@@ -4,7 +4,7 @@
 <div class="container border">
     <div class="col-12">
         <h1>Danh Sách Các Admin</h1>
-        <a href="#" class="btn btn-primary">Thêm</a>
+        <a href="/ctAdmin/ct-register" class="btn btn-primary">Thêm Mới</a>
     </div>
     <div class="row">
         <div class="col">
@@ -28,7 +28,10 @@
                         <td>
                                 <a href="/ctAdmin/Admin/ct-list/{{$item->id}}" class="btn btn-danger" onclick="return ctNoitice();">
                                     Xóa
-                                </a>   
+                                </a>
+                                <a href="/ctAdmin/Admin/ct-edit/{{$item->id}}" class="btn btn-primary">
+                                    Sửa
+                                </a>    
                                 <script>
                                     function ctNoitice() {
                                         return confirm("Bạn có chắc chắn muốn xóa mục này?"); 

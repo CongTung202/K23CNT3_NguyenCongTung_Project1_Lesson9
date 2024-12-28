@@ -14,11 +14,7 @@
                         <th>#</th>
                         <th>Mã Khách</th>
                         <th>Tên Khách</th>
-                        <th>Email</th>
-                        <th>Mật Khẩu</th>
-                        <th>Điện Thoại</th>
                         <th>Địa Chỉ</th>
-                        <th>Ngày Đăng Ký</th>
                         <th>Trạng Thái</th>
                         <th>Hành Động</th>
                     </tr>
@@ -29,17 +25,11 @@
                         <td>{{ $loop->iteration + ($ctKhachHang->currentPage() - 1) * $ctKhachHang->perPage() }}</td>
                         <td>{{ $item->ctMaKhachHang }}</td>
                         <td>{{ $item->ctHoTenKhachHang }}</td>
-                        <td>{{ $item->ctEmail }}</td>
-                        <td>{{ $item->ctMatKhau }}</td>
-                        <td>{{ $item->ctDienThoai }}</td>
                         <td>{{ $item->ctDiaChi }}</td>
-                        <td>{{ $item->ctNgayDangKy }}</td>
                         <td>{{ $item->ctTrangThai }}</td>
                         <td>
-                            <a href="#" class="btn btn-info btn-sm">Xem</a>
-<!--                            <a href="/ctAdmin/KhachHang/ct-edit/{{$item->id}}" class="btn btn-primary btn-sm">Sửa</a>
-                            <a href="/ctAdmin/KhachHang/ct-delete/{{$item->id}}" class="btn btn-danger btn-sm" onclick="return ctNotice();">Xóa</a>   
--->
+                            <a href="/ctAdmin/Khach/ct-view/{{$item->id}}" class="btn btn-info btn-sm">Chi Tiết</a>
+
                         </td>    
                     </tr>    
                     @empty

@@ -36,15 +36,26 @@ public function ctLoginSubmit(Request $request)
         'ctTaiKhoan' => 'required|string',
         'ctMatKhau' => 'required|string',
     ]);
+
     // Tìm kiếm người dùng trong cơ sở dữ liệu
     $admin = ctQuanTriModels::where('ctTaiKhoan', $request->ctTaiKhoan)->first();
-    // Kiểm tra xem người dùng có tồn tại không và mật khẩu có đúng không
-    if ($admin && Hash::check($request->ctMatKhau, $admin->ctMatKhau)) {
-        // Lưu cookie người dùng 
+
+    // Kiểm tra xem người dùng có tồn tại không
+    if ($admin) {
+        // Kiểm tra trạng thái tài khoản
+        if ($admin->ctTrangThai == 0) {
+            return back()->withErrors([
+                'ctTaiKhoan' => 'Tài khoản của bạn đã bị vô hiệu hóa.',
+            ]);
+        }
+        // Kiểm tra mật khẩu
+        if (Hash::check($request->ctMatKhau, $admin->ctMatKhau)) {
+            // Lưu cookie người dùng 
             $request->session()->regenerate();
             return redirect()->route('CongTung.Home')->withCookie(cookie('ctTaiKhoan', $request->ctTaiKhoan, 60 * 24 * 30)); // Lưu cookie trong 30 ngày
+        }
     }
-    // Nếu không tìm thấy người dùng, trả về lỗi
+    // Nếu không tìm thấy người dùng hoặc mật khẩu không đúng, trả về lỗi
     return back()->withErrors([
         'ctTaiKhoan' => 'Thông tin đăng nhập không chính xác.',
     ]);

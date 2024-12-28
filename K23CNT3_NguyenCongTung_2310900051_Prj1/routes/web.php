@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome')->name('home');
 });
+
 #dangnhap dangky dangxuat
 Route::get('/ctAdmin/ct-register', function () {return view('ctLogIn.Register');})->name('CongTung.Register');
 Route::post('/ctAdmin/ct-register', [ctLoginController::class, 'ctRegister']);
@@ -29,6 +30,9 @@ Route::get('/ctAdmin/ct-login', function () {return view('ctLogIn.Login');})->na
 Route::post('/ctAdmin/ct-login', [ctLoginController::class, 'ctLoginSubmit']);
 Route::post('/logout', [ctLoginController::class, 'ctLogout'])->name('CongTung.Logout');
 #end dangnhap dangky dangxuat
+
+#home
+
 #Loai San Pham
 route::get('/ctAdmin',[ctLoaiSanPhamController::class,'ctHome'])->name('CongTung.Home');
 route::get('/ctAdmin/ct-list',[ctLoaiSanPhamController::class,'ctList'])->name('CongTung.List');
@@ -52,15 +56,22 @@ route::get('/ctAdmin/SanPham/ct-delete/{id}',[ctSanPhamController::class,'ctDele
 route::get('/ctAdmin/Khach/ct-list',[ctKhachHangController::class,'ctList'])->name('CongTung.KhachHang.List');
 Route::get('/ctAdmin/Khach/ct-create', [ctKhachHangController::class, 'ctCreate'])->name('CongTung.KhachHang.Create');
 Route::post('/ctAdmin/Khach/ct-create', [ctKhachHangController::class, 'ctCreateSubmit'])->name('CongTung.KhachHang.CreateSubmit');
+route::get('/ctAdmin/Khach/ct-view/{id}',[ctKhachHangController::class,'ctView'])->name('CongTung.Khach.View');
 #End Khach
-#guest
-route::get('ctGuest/Home',function(){
-    return view('ctGuest.ct-home');
-});
-route::get('ctGuest/Home',[ctGuestController::class,'ctList'])->name('CongTung.Guest.Home');
-route::get('/ctGuest/Introduction',[ctGuestController::class,'ctIntroduction']);
-#end Guest
+
 #admin
+route::get('/ctAdmin',[ctQuanTriController::class,'ctBoxHome']);
 route::get('/ctAdmin/Admin/ct-list',[ctQuanTriController::class,'ctList'])->name('CongTung.Admin.List');
 route::get('/ctAdmin/Admin/ct-list/{id}',[ctQuanTriController::class,'ctDelete'])->name('CongTung.Admin.Delete');
+route::get('/ctAdmin/Admin/ct-edit/{id}',[ctQuanTriController::class,'ctEdit'])->name('CongTung.Admin.Edit');
+route::post('/ctAdmin/Admin/ct-edit/{id}',[ctQuanTriController::class,'ctEditSubmit'])->name('CongTung.Admin.EditSubmit');
+route::get('/ctAdmin/Admin/ct-create',[ctQuanTriController::class,'ctAdmin'])->name('CongTung.Khach.View');
 #end admin
+#guest
+route::get('ctGuest/Home',function(){return view('ctGuest.ct-home');});
+route::get('ctGuest/Home',[ctGuestController::class,'ctList'])->name('CongTung.Guest.Home');
+route::get('/ctGuest/Introduction',[ctGuestController::class,'ctIntroduction']);
+route::get('/ctGuest/SanPham',[ctGuestController::class,'ctListSanPham'])->name('CongTung.Guest.SanPham');
+Route::get('/ctGuest/ct-create', [ctKhachHangController::class, 'ctCreatewithGuest'])->name('CongTung.Guest.Create');
+Route::post('/ctGuest/ct-create', [ctKhachHangController::class, 'ctCreateSubmitwithGuest'])->name('CongTung.Guest.CreateSubmit');
+#end Guest
