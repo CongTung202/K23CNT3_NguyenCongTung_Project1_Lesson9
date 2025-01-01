@@ -38,7 +38,13 @@
                         <td>{{ $item->ctSoLuong }}</td>
                         <td>{{ number_format($item->ctDonGia, 0, ',', '.') }}</td>
                         <td>{{ $item->ctMaLoai }}</td>
-                        <td>{{ $item->ctTrangThai }}</td>
+                        <td>
+                            @if($item->ctTrangThai == 1)
+                                Hiển Thị
+                            @else
+                                Khóa
+                            @endif
+                        </td>
                         <td>
                             <a href="#" class="btn btn-info btn-sm">Xem</a>
                             <a href="/ctAdmin/SanPham/ct-edit/{{$item->id}}" class="btn btn-primary btn-sm">Sửa</a>

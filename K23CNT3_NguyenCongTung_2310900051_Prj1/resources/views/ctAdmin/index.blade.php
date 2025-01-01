@@ -12,7 +12,7 @@
                     <div class="card-body" style="background-color: #DC143C; color: #fff;">
                         <h1 class="card-title text-center">{{$ctSoSanPham}}</h1>
                         <p class="card-text text-center">Sản phẩm</p>
-                        <a href="#" class="btn btn-outline-light text-center">Chi tiết</a>
+                        <a href="/ctAdmin/SanPham/ct-list" class="btn btn-outline-light text-center">Chi tiết</a>
                     </div>
                 </div>
             </div>
@@ -21,7 +21,7 @@
                     <div class="card-body" style="background-color: #00c5d3; color: #fff;">
                         <h1 class="card-title text-center">{{$ctSoKhachHang}}</h1>
                         <p class="card-text text-center">Khách Hàng</p>
-                        <a href="#" class="btn btn-outline-light text-center">Chi tiết</a>
+                        <a href="/ctAdmin/Khach/ct-list" class="btn btn-outline-light text-center">Chi tiết</a>
                     </div>
                 </div>
             </div>
@@ -30,7 +30,7 @@
                     <div class="card-body" style="background-color: #56d600; color: #fff;">
                         <h1 class="card-title text-center">{{$ctSoLoaiSanPham}}</h1>
                         <p class="card-text text-center">Loại Sản Phẩm</p>
-                        <a href="#" class="btn btn-outline-light text-center">Chi tiết</a>
+                        <a href="/ctAdmin/ct-list" class="btn btn-outline-light text-center">Chi tiết</a>
                     </div>
                 </div>
             </div>
@@ -39,7 +39,7 @@
                     <div class="card-body" style="background-color: #ebfa1f; color: #000000;">
                         <h1 class="card-title text-center">{{$ctSoQuanTri}}</h1>
                         <p class="card-text text-center">Quản Trị</p>
-                        <a href="#" class="btn btn-outline-light text-center">Chi tiết</a>
+                        <a href="/ctAdmin/Admin/ct-list" class=" btn    btn-outline-light text-center" style="color: black; border:.1px solid black;">Chi tiết</a>
                     </div>
                 </div>
             </div>

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('ctTaiKhoan',255)->unique();
             $table->string('ctMatKhau',255);
-            $table->tinyInteger('ctTrangThai');
+            $table->tinyInteger('ctTrangThai')->default(1);
             $table->timestamps();
         });
     }

@@ -23,29 +23,23 @@
         <span class="sr-only">Next</span>
     </a>
 </div>
+<br>
 <span><h3 style="background-color:aquamarine;font-weight:bold;width:calc(30%)">Một Số Sản Phẩm Nổi Bật</h3></span>
-<div class="hot-sale">
-     
-    <div class="row">
+    <div class="product-container">
         @forelse ($ctGuestSanPham as $item)
-            <div class="column">
-                <div class="card">
-                    @if($item->ctHinhAnh)
-                        <img src="{{ asset('images/' . $item->ctHinhAnh) }}" alt="{{ $item->ctTenSanPham }}" class="product-image">
-                    @else
-                        <span>Không có hình ảnh</span>
-                    @endif
-                    <div class="container">
-                        <h5>{{ $item->ctTenSanPham }}</h5>
-                        <p class="title">{{ number_format($item->ctDonGia, 0, ',', '.') }}đ</p>
-                        <p>{{ $item->ctMaLoai }}</p>
-                        <p>{{ $item->ctTrangThai }}</p>
-                    </div>
-                </div>
+        <div class="product-card">
+            @if($item->ctHinhAnh)
+                <img src="{{ asset('images/' . $item->ctHinhAnh) }}" alt="{{ $item->ctTenSanPham }}" class="product-image">
+            @else
+                <span>Không có hình ảnh</span>
+            @endif
+            <div class="product-info">
+                <h5>{{ $item->ctTenSanPham }}</h5>
+                <p class="price">{{ number_format($item->ctDonGia, 0, ',', '.') }}đ</p>
             </div>
-        @empty
-            <p>Không có sản phẩm nào.</p>
-        @endforelse
-    </div>
-</div>  
+        </div>
+    @empty
+        <p>Không có sản phẩm nào.</p>
+    @endforelse
+    </div>  
 @endsection

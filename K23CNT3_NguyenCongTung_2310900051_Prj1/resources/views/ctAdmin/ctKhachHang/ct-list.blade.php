@@ -26,7 +26,13 @@
                         <td>{{ $item->ctMaKhachHang }}</td>
                         <td>{{ $item->ctHoTenKhachHang }}</td>
                         <td>{{ $item->ctDiaChi }}</td>
-                        <td>{{ $item->ctTrangThai }}</td>
+                        <td>
+                            @if($item->ctTrangThai == 1)
+                                Hiển Thị
+                            @else
+                                Khóa
+                            @endif
+                        </td>
                         <td>
                             <a href="/ctAdmin/Khach/ct-view/{{$item->id}}" class="btn btn-info btn-sm">Chi Tiết</a>
 
@@ -34,7 +40,7 @@
                     </tr>    
                     @empty
                     <tr>
-                        < td colspan="10" class="text-center">Chưa Có Thông Tin</td>
+                        <td colspan="10" class="text-center">Chưa Có Thông Tin</td>
                     </tr>  
                     @endforelse
                 </tbody>

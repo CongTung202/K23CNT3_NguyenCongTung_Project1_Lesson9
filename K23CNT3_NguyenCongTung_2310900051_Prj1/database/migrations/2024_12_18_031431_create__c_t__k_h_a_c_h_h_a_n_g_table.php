@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('ctMatKhau',255);
             $table->string('ctDienThoai',255);
             $table->string('ctDiaChi',255);
-            $table->date('ctNgayDangKy');
-            $table->tinyInteger('ctTrangThai');
+            $table->date('ctNgayDangKy')->default(now());
+            $table->tinyInteger('ctTrangThai')->default(1);
             $table->timestamps();
         });
     }

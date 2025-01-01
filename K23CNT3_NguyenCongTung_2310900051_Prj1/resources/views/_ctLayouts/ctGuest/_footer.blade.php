@@ -16,7 +16,7 @@
             <ul class="list-inline">
                 <li class="list-inline-item"><a href="#" class="text-white">Giới thiệu</a></li>
                 <li class="list-inline-item"><a href="#" class="text-white">Dịch vụ</a></li>
-                <li class="list-inline-item"><a href="#" class="text-white">Liên hệ</a></li>
+                <li class="list-inline-item"><a href="https://www.facebook.com/profile.php?id=100090485162171" class="text-white">Liên hệ</a></li>
                 <li class="list-inline-item"><a href="#" class="text-white">Chính sách bảo mật</a></li>
             </ul>
         </div>

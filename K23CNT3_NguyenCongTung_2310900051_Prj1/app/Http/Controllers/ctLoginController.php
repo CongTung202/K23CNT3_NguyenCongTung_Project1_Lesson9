@@ -27,7 +27,7 @@ class ctLoginController extends Controller
         'ctMatKhau' => Hash::make($request->ctMatKhau), // Băm mật khẩu
     ]);
     // Chuyển hướng đến trang đăng nhập hoặc trang chính
-    return redirect()->route('CongTung.Login');
+    return redirect('/ctAdmin');
 }
 public function ctLoginSubmit(Request $request)
 {
@@ -52,7 +52,7 @@ public function ctLoginSubmit(Request $request)
         if (Hash::check($request->ctMatKhau, $admin->ctMatKhau)) {
             // Lưu cookie người dùng 
             $request->session()->regenerate();
-            return redirect()->route('CongTung.Home')->withCookie(cookie('ctTaiKhoan', $request->ctTaiKhoan, 60 * 24 * 30)); // Lưu cookie trong 30 ngày
+            return redirect('/ctAdmin')->withCookie(cookie('ctTaiKhoan', $request->ctTaiKhoan, 60 * 24 * 30)); // Lưu cookie trong 30 ngày
         }
     }
     // Nếu không tìm thấy người dùng hoặc mật khẩu không đúng, trả về lỗi
@@ -64,6 +64,6 @@ public function ctLoginSubmit(Request $request)
     {
         // Xóa cookie và session
         Session::flush();
-        return redirect()->route('CongTung.Home')->withCookie(cookie('ctTaiKhoan', null, -1)); // Xóa cookie
+        return redirect('/ctAdmin')->withCookie(cookie('ctTaiKhoan', null, -1)); // Xóa cookie
     }
 }

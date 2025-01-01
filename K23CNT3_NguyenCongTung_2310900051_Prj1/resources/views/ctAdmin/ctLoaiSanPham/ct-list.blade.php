@@ -24,7 +24,13 @@
                         <td>{{$loop->iteration+($ctLoaiSanPham->currentPage()-1)*$ctLoaiSanPham->perPage()}}</td>
                         <td>{{ $item->ctMaLoai }}</td>
                         <td>{{ $item->ctTenLoai }}</td>
-                        <td>{{ $item->ctTrangThai }}</td>
+                        <td>
+                            @if($item->ctTrangThai == 1)
+                                Hiển Thị
+                            @else
+                                Khóa
+                            @endif
+                        </td>
                         <td>
                             <a href="/ctAdmin/ct-view/{{$item->id}}" class="btn btn-info">
                                 Xem</a>

@@ -14,15 +14,16 @@ return new class extends Migration
         Schema::create('CT_HOA_DON', function (Blueprint $table) {
             $table->id();
             $table->string('ctMaHoaDon',255)->unique();
-            $table->string('ctMaKhachHang')->references('ctMaKhachHang')->on('CT_KHACH_HANG');
+            $table->string('ctMaKhachHang');
+            $table->foreign('ctMaKhachHang')->references('ctMaKhachHang')->on('CT_KHACH_HANG')->onDelete('cascade');
             $table->string('ctMaSanPham');
-            $table->date('ctNgayHoaDon');
+            $table->date('ctNgayHoaDon')->default(now());
             $table->string('ctHoTenKhachHang');
-            $table->string('ctEmail');
-            $table->string('ctDienThoai',10);
+            $table->string('ctEmail')->unique();
+            $table->string('ctDienThoai',10)->unique();
             $table->string('ctDiaChi');
-            $table->float('ctTongTriGia');
-            $table->string('ctTrangThai');
+            $table->decimal('ctTongTriGia',15,3);
+            $table->string('ctTrangThai')->default(1);
             $table->timestamps();
         });
     }

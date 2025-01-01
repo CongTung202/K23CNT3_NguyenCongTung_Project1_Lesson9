@@ -98,12 +98,41 @@
         background-color: #555;
     }
 
+    .product-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: start; /* Sử dụng space-between để tạo khoảng cách đều */
+        margin: 20px 0;
+    }
+    .product-card {
+        background-color: white;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        margin: 10px;
+        padding: 15px;
+        width: calc(20% - 20px); /* Điều chỉnh width để có 5 card trên một dòng */
+        text-align: center;
+        box-sizing: border-box; /* Đảm bảo padding và border không làm thay đổi kích thước */
+    }
     .product-image {
-        width: 100%; /* Đặt chiều rộng hình ảnh là 100% của khung chứa */
-        height: 170px; /* Đặt chiều cao cố định cho hình ảnh */
-        object-fit: cover; /* Cắt hình ảnh để phù hợp với khung mà không làm biến dạng */
+        width: 100%; /* Đặt chiều rộng hình ảnh bằng 100% của thẻ chứa */
+        height: 200px; /* Đặt chiều cao cố định cho hình ảnh */
+        object-fit: cover; /* Cắt hình ảnh để phù hợp với kích thước mà không làm biến dạng */
         border-radius: 5px; /* Tùy chọn: bo góc hình ảnh */
     }
+    .product-info {
+        margin-top: 10px;
+    }
+    .price {
+        font-weight: bold;
+        color: #d9534f; /* Màu sắc cho giá */
+    }
+    .category, .status {
+        font-size: 0.9em;
+        color: #777;
+    }
+
 </style>
 </head>
 <body style="background: #fac8c8">

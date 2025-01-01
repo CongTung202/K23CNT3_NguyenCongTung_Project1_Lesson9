@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ctGuestController;
+use App\Http\Controllers\ctHoaDonController;
 use App\Http\Controllers\ctKhachHangController;
 use App\Http\Controllers\ctLoaiSanPhamController;
 use App\Http\Controllers\ctLoginController;
@@ -28,7 +29,7 @@ Route::get('/ctAdmin/ct-register', function () {return view('ctLogIn.Register');
 Route::post('/ctAdmin/ct-register', [ctLoginController::class, 'ctRegister']);
 Route::get('/ctAdmin/ct-login', function () {return view('ctLogIn.Login');})->name('CongTung.Login');
 Route::post('/ctAdmin/ct-login', [ctLoginController::class, 'ctLoginSubmit']);
-Route::post('/logout', [ctLoginController::class, 'ctLogout'])->name('CongTung.Logout');
+Route::post('/ctAdmin/ct-logout', [ctLoginController::class, 'ctLogout'])->name('CongTung.Logout');
 #end dangnhap dangky dangxuat
 
 #home
@@ -67,11 +68,17 @@ route::get('/ctAdmin/Admin/ct-edit/{id}',[ctQuanTriController::class,'ctEdit'])-
 route::post('/ctAdmin/Admin/ct-edit/{id}',[ctQuanTriController::class,'ctEditSubmit'])->name('CongTung.Admin.EditSubmit');
 route::get('/ctAdmin/Admin/ct-create',[ctQuanTriController::class,'ctAdmin'])->name('CongTung.Khach.View');
 #end admin
+#hoadon
+route::get('/ctAdmin/HoaDon/ct-list',[ctHoaDonController::class,'ctList'])->name('CongTung.HoaDon');
+#endHoaDon
 #guest
 route::get('ctGuest/Home',function(){return view('ctGuest.ct-home');});
 route::get('ctGuest/Home',[ctGuestController::class,'ctList'])->name('CongTung.Guest.Home');
 route::get('/ctGuest/Introduction',[ctGuestController::class,'ctIntroduction']);
 route::get('/ctGuest/SanPham',[ctGuestController::class,'ctListSanPham'])->name('CongTung.Guest.SanPham');
+Route::get('/ctGuest/ct-login', function () {return view('ctLogIn.LoginGuest');})->name('CongTung.Guest.Login');
+Route::post('/ctGuest/ct-login', [ctKhachHangController::class, 'ctLoginSubmitGuest']);
 Route::get('/ctGuest/ct-create', [ctKhachHangController::class, 'ctCreatewithGuest'])->name('CongTung.Guest.Create');
 Route::post('/ctGuest/ct-create', [ctKhachHangController::class, 'ctCreateSubmitwithGuest'])->name('CongTung.Guest.CreateSubmit');
+route::post('/ctGuest/ct-Logout',[ctKhachHangController::class,'ctLogoutwithGuest'])->name('CongTung.Guest.Logout');
 #end Guest

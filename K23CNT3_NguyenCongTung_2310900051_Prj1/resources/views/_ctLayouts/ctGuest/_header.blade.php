@@ -70,10 +70,26 @@
                 </div>
                 <div class="menu">
                     <ul>
-                        <li><a href="/ctGuest/Home">TRANG CHỦ</a></li>
-                        <li><a href="/ctGuest/Introduction">GIỚI THIỆU</a></li>
-                        <li><a href="/ctGuest/SanPham">SẢN PHẨM</a></li>
-                        <li><a href="/ctGuest/ct-create">ĐĂNG NHẬP/ĐĂNG KÝ</a></li>
+                        <li><a href="/ctGuest/Home">Trang Chủ</a></li>
+                        <li><a href="/ctGuest/Introduction">Giới Thiệu</a></li>
+                        <li><a href="/ctGuest/SanPham">Sản Phẩm</a></li>
+                        @if (Cookie::has('ctEmail'))
+                            <li class="nav-item">
+                                <a  href="#">{{ Cookie::get('ctEmail') }}</a>
+                            </li>
+                            <li >
+                                <form action="{{ route('CongTung.Guest.Logout') }}" method="POST" style="display: inline;">
+                                    @csrf
+                                    <button type="submit" class="link-offset-2 link-underline link-underline-opacity-0"  style="background: none; border: none; color: black; text-decoration: none; cursor: pointer; padding: 0;">
+                                        Đăng Xuất
+                                    </button>
+                                </form>
+                            </li>
+                        @else
+                            <li class="">
+                                <a  href="{{ route('CongTung.Guest.Login') }}">Đăng Nhập</a>
+                            </li>
+                        @endif
                     </ul>
                 </div>
             </nav>

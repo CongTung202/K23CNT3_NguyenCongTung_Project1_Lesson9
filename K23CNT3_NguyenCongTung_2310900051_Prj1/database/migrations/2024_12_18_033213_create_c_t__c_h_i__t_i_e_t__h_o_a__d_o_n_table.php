@@ -13,12 +13,14 @@ return new class extends Migration
     {
         Schema::create('CT_CHI_TIET_HOA_DON', function (Blueprint $table) {
             $table->id();
-            $table->string('ctHoaDonID')->references('id')->on('CT_HOA_DON');
-            $table->string('sanPhamID')->references('id')->on('CT_SAN_PHAM');
+            $table->unsignedBigInteger('ctHoaDonID');
+            $table->foreign('ctHoaDonID')->references('id')->on('CT_HOA_DON')->onDelete('cascade');
+            $table->unsignedBigInteger('ctSSanPhamID');
+            $table->foreign('ctSSanPhamID')->references('id')->on('CT_SAN_PHAM')->onDelete('cascade');
             $table->integer('ctSoLuongMua');
-            $table->float('ctDonGiaMua');
-            $table->float('ctThanhTien');
-            $table->tinyInteger('ctTrangThai');
+            $table->decimal('ctDonGiaMua',15,3);
+            $table->decimal('ctThanhTien',15,3);
+            $table->tinyInteger('ctTrangThai')->default(1);
             $table->timestamps();
         });
     }

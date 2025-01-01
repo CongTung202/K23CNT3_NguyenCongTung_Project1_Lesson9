@@ -33,6 +33,9 @@
                 <div class="col-sm-10">
                     <input type="file" class="form-control" id="ctHinhAnh" name="ctHinhAnh"/>
                 </div>
+                @error('ctHinhAnh')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
                 <script>
                     document.getElementById('ctHinhAnh').addEventListener('change', function(event) {
                         const file = event.target.files[0];
@@ -54,6 +57,9 @@
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="ctSoLuong" name="ctSoLuong" required />
                 </div>
+                @error('ctSoLuong')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
             </div>
             <div class="mb-3 row">
                 <label for="ctDonGia" class="col-sm-2 col-form-label">Đơn Giá</label>

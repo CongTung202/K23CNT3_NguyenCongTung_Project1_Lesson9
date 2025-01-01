@@ -18,4 +18,8 @@ class ctSanPhamModel extends Model
         'ctMaLoai',
         'ctTrangThai'
     ];
+    public function ctLoaiSanPham()
+    {
+        return $this->belongsTo(CT_LOAI_SAN_PHAM::class, 'ctMaLoai', 'ctMaLoai');
+    }
 }

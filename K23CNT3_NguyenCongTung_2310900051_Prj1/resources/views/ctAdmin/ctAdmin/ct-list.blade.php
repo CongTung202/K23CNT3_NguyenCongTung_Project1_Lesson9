@@ -1,9 +1,9 @@
 @extends('_ctLayouts.ctAdmin._master')
-@section('title', 'Danh Sách Admin')    
+@section('title', 'Danh Sách Quản Trị')    
 @section('content-body')
 <div class="container border">
     <div class="col-12">
-        <h1>Danh Sách Các Admin</h1>
+        <h1>Danh Sách Các Quản Trị</h1>
         <a href="/ctAdmin/ct-register" class="btn btn-primary">Thêm Mới</a>
     </div>
     <div class="row">
@@ -24,7 +24,13 @@
                         <td>{{$loop->iteration+($ctAdmin->currentPage()-1)*$ctAdmin->perPage()}}</td>
                         <td>{{ $item->ctTaiKhoan }}</td>
                         <td>{{ $item->ctMatKhau }}</td>
-                        <td>{{ $item->ctTrangThai }}</td>
+                        <td>
+                            @if($item->ctTrangThai == 1)
+                                Hiển Thị
+                            @else
+                                Khóa
+                            @endif
+                        </td>
                         <td>
                                 <a href="/ctAdmin/Admin/ct-list/{{$item->id}}" class="btn btn-danger" onclick="return ctNoitice();">
                                     Xóa

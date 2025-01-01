@@ -17,9 +17,10 @@ return new class extends Migration
             $table->string('ctTenSanPham');
             $table->string('ctHinhAnh');
             $table->integer('ctSoLuong');
-            $table->float('ctDonGia');
-            $table->string('id')->references('id')->on('CT_LOAI_SAN_PHAM');
-            $table->tinyInteger('ctTrangThai');
+            $table->decimal('ctDonGia',15,3);
+            $table->string('ctMaLoai');
+            $table->foreign('ctMaLoai')->references('ctMaLoai')->on('CT_LOAI_SAN_PHAM')->onDelete('cascade');
+            $table->tinyInteger('ctTrangThai')->default(1);
             $table->timestamps();
         });
     }
