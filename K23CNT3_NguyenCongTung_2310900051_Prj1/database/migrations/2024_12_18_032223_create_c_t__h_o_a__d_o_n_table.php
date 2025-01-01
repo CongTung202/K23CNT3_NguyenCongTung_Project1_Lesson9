@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('ctMaHoaDon',255)->unique();
             $table->string('ctMaKhachHang');
             $table->foreign('ctMaKhachHang')->references('ctMaKhachHang')->on('CT_KHACH_HANG')->onDelete('cascade');
-            $table->string('ctMaSanPham');
             $table->date('ctNgayHoaDon')->default(now());
             $table->string('ctHoTenKhachHang');
             $table->string('ctEmail')->unique();
